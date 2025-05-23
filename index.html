@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Supermercado Online</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="bg-success text-white text-center p-3 mb-3">
+      <h1>Bem-vindo ao Supermercado Online</h1>
+      <p>Encontre tudo o que você precisa com apenas alguns cliques!</p>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar bg-azul-escuro">
+          <div class="position-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <button
+                  class="nav-link active btn btn-link text-branco"
+                  id="limpar-filtro"
+                  style="font-size: 26px"
+                >
+                  Mostrar Todos
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  class="nav-link btn btn-link text-branco categoria"
+                  data-categoria="Alimentos"
+                  style="font-size: 24px"
+                >
+                  Alimentos
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  class="nav-link btn btn-link text-branco categoria"
+                  data-categoria="Bebidas"
+                  style="font-size: 24px"
+                >
+                  Bebidas
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  class="nav-link btn btn-link text-branco categoria"
+                  data-categoria="Latcinios"
+                  style="font-size: 24px"
+                >
+                  Latcinios
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  class="nav-link btn btn-link text-branco categoria"
+                  data-categoria="Produtos de Limpeza"
+                  style="font-size: 24px"
+                >
+                  Produtos de Limpeza
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  class="nav-link btn btn-link text-branco categoria"
+                  data-categoria="Snaks"
+                  style="font-size: 24px"
+                >
+                  Snaks
+                </button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class="row mb-3">
+            <div class="col">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Pesquisar produtos"
+                  id="campo-pesquisa"
+                  style="font-size: 24px"
+                />
+
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="botao-pesquisar"
+                  style="font-size: 24px"
+                >
+                  Pesquisar
+                </button>
+              </div>
+            </div>
+            <div class="col text-end">
+              <button
+                class="btn btn-info"
+                id="botao-ver-carrinho"
+                style="font-size: 24px"
+                data-bs-toggle="modal"
+                data-bs-target="#modalCarrinho"
+                style="font-size: 24px;"
+              >
+                Ver Carrinho (<span id="contador-carrinho">0</span> itens)
+              </button>
+
+            </div>
+          </div>
+
+          <div id="secoes-produtos">
+
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="modalCarrinho"
+      tabindex="-1"
+      aria-labelledby="modalCarrinho"
+      aria-hidden="true">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title" id="labelModalCarrinho">Carrinho de Compras</h5>
+
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+             <ul id="lista-itens-carrinho" class="list-group">
+
+             </ul>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+            </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="modal fade" id="modalProduto" tabindex="-1" aria-labelledby="labelModalProduto" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="labelModalProduto">Detalhes do Produto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+
+            <div class="text-center">
+
+                <img id="imagem-produto" class="img-fluid mb-3" src="" alt="">
+
+            </div>
+
+            <h5 id="nome-produto"></h5>
+
+            <p id="descricaoProduto"></p>
+            <p><strong>Preço: R$<span id="preco-produto"></span></strong></p>
+
+            <div class="input-group mb-3">
+
+                <label for="input-group-text" for="quantidade-produto">Quantidade</label>
+                <input type="number" class="form-control" id="quantidade-produto" value="1" min="1" max="99">
+
+
+            </div>
+
+            <button class="btn btn-primary" id="botao-adicionar-carrinho-modal" data-produto-id="">Adicionar ao Carrinho</button>
+
+          </div>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
