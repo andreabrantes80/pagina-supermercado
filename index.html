@@ -56,10 +56,10 @@
               <li class="nav-item">
                 <button
                   class="nav-link btn btn-link text-branco categoria"
-                  data-categoria="Latcinios"
+                  data-categoria="Laticínios"
                   style="font-size: 24px"
                 >
-                  Latcinios
+                  Laticínios
                 </button>
               </li>
               <li class="nav-item">
@@ -74,10 +74,10 @@
               <li class="nav-item">
                 <button
                   class="nav-link btn btn-link text-branco categoria"
-                  data-categoria="Snaks"
+                  data-categoria="Snacks"
                   style="font-size: 24px"
                 >
-                  Snaks
+                  Snacks
                 </button>
               </li>
             </ul>
@@ -113,17 +113,15 @@
                 style="font-size: 24px"
                 data-bs-toggle="modal"
                 data-bs-target="#modalCarrinho"
-                style="font-size: 24px;"
+                style="font-size: 24px"
               >
                 Ver Carrinho (<span id="contador-carrinho">0</span> itens)
               </button>
-
             </div>
           </div>
 
-          <div id="secoes-produtos">
-
-          </div>
+          <div id="secoes-produtos"></div>
+          ''
         </main>
       </div>
     </div>
@@ -132,85 +130,109 @@
       class="modal fade"
       id="modalCarrinho"
       tabindex="-1"
-      aria-labelledby="modalCarrinho"
-      aria-hidden="true">
-
-      <div class="modal-dialog">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-
-                <h5 class="modal-title" id="labelModalCarrinho">Carrinho de Compras</h5>
-
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close">
-                </button>
-
-            </div>
-
-            <div class="modal-body">
-
-             <ul id="lista-itens-carrinho" class="list-group">
-
-             </ul>
-
-            </div>
-
-            <div class="modal-footer">
-
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-
-            </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="modal fade" id="modalProduto" tabindex="-1" aria-labelledby="labelModalProduto" aria-hidden="true">
+      aria-labelledby="labelModalCarrinho"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="labelModalProduto">Detalhes do Produto</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="labelModalCarrinho">
+              Carrinho de Compras
+            </h5>
+
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
 
           <div class="modal-body">
+            <ul id="lista-itens-carrinho" class="list-group"></ul>
+          </div>
 
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="modalProduto"
+      tabindex="-1"
+      aria-labelledby="labelModalProduto"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="labelModalProduto">
+              Detalhes do Produto
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
             <div class="text-center">
-
-                <img id="imagem-produto" class="img-fluid mb-3" src="" alt="">
-
+              <img id="imagem-produto" class="img-fluid mb-3" src="" alt="" />
             </div>
 
             <h5 id="nome-produto"></h5>
 
-            <p id="descricaoProduto"></p>
-            <p><strong>Preço: R$<span id="preco-produto"></span></strong></p>
+            <p id="descricao-produto"></p>
+            <p>
+              <strong>Preço: R$<span id="preco-produto"></span></strong>
+            </p>
 
             <div class="input-group mb-3">
-
-                <label for="input-group-text" for="quantidade-produto">Quantidade</label>
-                <input type="number" class="form-control" id="quantidade-produto" value="1" min="1" max="99">
-
-
+              <label for="input-group-text" for="quantidade-produto"
+                >Quantidade</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="quantidade-produto"
+                value="1"
+                min="1"
+              />
             </div>
 
-            <button class="btn btn-primary" id="botao-adicionar-carrinho-modal" data-produto-id="">Adicionar ao Carrinho</button>
-
+            <button
+              class="btn btn-primary"
+              id="botao-adicionar-carrinho-modal"
+              data-produto-id=""
+            >
+              Adicionar ao Carrinho
+            </button>
           </div>
+        </div>
+      </div>
     </div>
 
     <script
-    src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-    crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>
