@@ -50,67 +50,145 @@
   padding-left: 0;
 }
 
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.input-group input {
+    flex: 1;
+    min-width: 150px;
+}
+
+.input-group button {
+    flex: none;
+    width: auto;
+}
+
+#botao-pesquisar, #botao-ver-carrinho {
+    width: 100%;
+    max-width: 100%;
+}
+
+#campo-pesquisa {
+    font-size: 16px !important;
+    width: 100%;
+    min-width: 200px;
+}
+
+
+
+
 /* Media Queries para dispositivos móveis */
 @media (max-width: 768px) {
-  /* Ajustes para a seção de produtos */
-  #secoes-produtos .card {
-    margin-bottom: 15px; /* Reduz margem em telas menores */
-  }
+    /* Ajustes para a seção de produtos */
+    #secoes-produtos .card {
+        margin-bottom: 15px;
+    }
 
-  /* Ajustes para a imagem do topo */
-  .bg-imagem-topo {
-    height: 150px; /* Reduz altura para telas menores */
-    object-fit: cover; /* Muda para cover para preencher melhor */
-  }
+    .bg-imagem-topo {
+        height: 150px;
+        object-fit: cover;
+    }
 
-  /* Ajustes para itens do carrinho */
-  .item-carrinho {
-    flex-direction: column; /* Empilha os itens em colunas */
-    align-items: flex-start;
-    padding: 10px;
-  }
+    .item-carrinho {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
 
-  .imagem-item-carrinho {
-    width: 80px; /* Aumenta ligeiramente a imagem */
-    height: 80px;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
+    .imagem-item-carrinho {
+        width: 80px;
+        height: 80px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 
-  .detalhes.item-carrinho {
-    width: 100%; /* Usa toda a largura disponível */
-  }
+    .detalhes.item-carrinho {
+        width: 100%;
+    }
 
-  /* Ajustes para a sidebar */
-  .sidebar {
-    width: 100%; /* Ocupa toda a largura em telas pequenas */
-    height: auto; /* Altura automática para não ocupar toda a tela */
-    position: relative; /* Remove o fixed para evitar sobreposição */
-    padding: 20px 0; /* Reduz o padding */
-  }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 20px 0;
+    }
 
-  .sidebar .nav-link {
-    font-size: 16px; /* Reduz o tamanho da fonte */
-    padding: 10px; /* Ajusta o padding dos links */
-  }
+    .sidebar .nav-link {
+        font-size: 16px;
+        padding: 10px;
+    }
 
-  .sidebar .nav-link:hover {
-    padding-left: 10px; /* Mantém um pequeno recuo ao hover */
-  }
+    .sidebar .nav-link:hover {
+        padding-left: 10px;
+    }
+
+    /* Ajustes para o input-group e botões */
+    .input-group {
+        flex-direction: column; /* Empilha input e botão */
+        align-items: stretch;
+        max-width: 100%; /* Usa toda a largura */
+    }
+    #quantidade-produto {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    #campo-pesquisa {
+        font-size: 16px !important; /* Reduz fonte */
+        margin-bottom: 10px; /* Espaço entre input e botão */
+    }
+
+    #botao-pesquisar {
+        font-size: 14px !important;
+        padding: 8px;
+        width: 100%; /* Botão ocupa toda a largura */
+        max-width: 150px; /* Limita largura */
+        align-self: center; /* Centraliza */
+    }
+
+    #botao-ver-carrinho {
+        font-size: 14px !important;
+        padding: 8px;
+        width: 100%; /* Botão ocupa toda a largura */
+        max-width: 150px; /* Limita largura */
+        margin-top: 10px; /* Espaço acima */
+    }
+
+    /* Ajusta a coluna do botão de carrinho */
+    .col.text-end {
+        text-align: center !important; /* Centraliza em telas menores */
+    }
 }
 
 @media (max-width: 576px) {
-  /* Ajustes adicionais para telas muito pequenas (celulares) */
-  .bg-imagem-topo {
-    height: 120px; /* Altura ainda menor para celulares */
-  }
+    .bg-imagem-topo {
+        height: 120px;
+    }
 
-  .imagem-item-carrinho {
-    width: 60px; /* Reduz o tamanho da imagem */
-    height: 60px;
-  }
+    .imagem-item-carrinho {
+        width: 60px;
+        height: 60px;
+    }
 
-  .sidebar .nav-link {
-    font-size: 14px; /* Fonte ainda menor para telas pequenas */
-  }
+    .sidebar .nav-link {
+        font-size: 14px;
+    }
+
+    #campo-pesquisa {
+        font-size: 14px !important;
+    }
+
+    #botao-pesquisar, #botao-ver-carrinho {
+        font-size: 12px !important;
+        padding: 6px;
+        max-width: 120px;
+    }
+
+    #contador-carrinho {
+        font-size: 12px;
+    }
 }
